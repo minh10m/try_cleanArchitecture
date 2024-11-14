@@ -1,5 +1,5 @@
 // weather_repository.dart
-import '../model/weather.dart';
+import '../model/weather/weather.dart';
 import '../service/api_service.dart';
 
 class WeatherRepository {

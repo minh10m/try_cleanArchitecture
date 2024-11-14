@@ -1,5 +1,5 @@
-import '../../data/model/weather.dart';
-import '../../data/repository/weather_repository.dart';
+import '../../../data/model/weather/weather.dart';
+import '../../../data/repository/weather_repository.dart';
 
 class GetCurrentWeatherUseCase {
   final WeatherRepository weatherRepository;

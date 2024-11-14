@@ -1,10 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/service/api_service.dart';
+import 'package:injectable/injectable.dart';
+import '../../../data/service/api_service.dart';
 import 'weather_event.dart';
 import 'weather_state.dart';
 
-
+@injectable
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final ApiHelper apiHelper;
 

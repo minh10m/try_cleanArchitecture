@@ -1,3 +1,14 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Đây là nơi bạn khai báo classpath
+        classpath 'com.android.tools.build:gradle:7.0.4' // Thay thế phiên bản tùy theo yêu cầu
+        classpath 'com.google.gms:google-services:4.3.15' // Cập nhật phiên bản mới hơn nếu cần
+    }
+}
 allprojects {
     repositories {
         google()

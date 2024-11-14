@@ -1,7 +1,7 @@
 // get_weather_by_city_name_usecase.dart
 
-import '../../data/model/weather.dart';
-import '../../data/repository/weather_repository.dart';
+import '../../../data/model/weather/weather.dart';
+import '../../../data/repository/weather_repository.dart';
 
 class GetWeatherByCityNameUseCase {
   final WeatherRepository weatherRepository;

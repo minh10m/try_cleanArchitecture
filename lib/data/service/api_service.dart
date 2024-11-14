@@ -1,9 +1,11 @@
 
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
-import '../model/weather.dart';
+import '../model/weather/weather.dart';
 import 'geoloactor.dart';
 
+@lazySingleton
 class ApiHelper{
   static const apiKey = '9d2262df33f285e5736d6be95c7d4b1d';
   static const baseUrl = 'https://api.openweathermap.org/data/2.5';
