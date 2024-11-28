@@ -9,7 +9,7 @@ class SignInUseCase {
 
   SignInUseCase(this.authenticationRepository);
 
-  Future<User> call(String email, String password) async {
+  Future<UserModel> call(String email, String password) async {
     return await authenticationRepository.signInEmail(email, password);
   }
 }

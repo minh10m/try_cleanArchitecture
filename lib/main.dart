@@ -1,5 +1,10 @@
+import 'package:clean_architecture/presentation/bloc/chat/chat_bloc.dart';
+import 'package:clean_architecture/presentation/bloc/home/home_bloc.dart';
+import 'package:clean_architecture/presentation/bloc/login/login_bloc.dart';
+import 'package:clean_architecture/presentation/bloc/login/login_state.dart';
 import 'package:clean_architecture/presentation/bloc/weather/weather_bloc.dart';
 import 'package:clean_architecture/presentation/bloc/weather/weather_event.dart';
+import 'package:clean_architecture/presentation/ui/home_page.dart';
 import 'package:clean_architecture/presentation/ui/login_screen.dart';
 import 'package:clean_architecture/presentation/ui/weather_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +25,19 @@ void main() async {
 
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   final ApiHelper apiHelper = ApiHelper();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LoginBloc>(create: (context) => GetIt.I<LoginBloc>()),
+        BlocProvider<WeatherBloc>(create: (context) => GetIt.I<WeatherBloc>()..add(FetchWeatherByLocation())),
+        BlocProvider<HomeBloc>(create: (context) => GetIt.I<HomeBloc>()),
+        BlocProvider<ChatBloc>(create: (context) => GetIt.I<ChatBloc>()),
+      ],
+      child: MaterialApp(
         title: 'Weather App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -34,12 +45,10 @@ class MyApp extends StatelessWidget {
         initialRoute: '/login',
         routes: {
           '/login': (context) => LoginScreen(),
-
-          '/weather': (context) => BlocProvider<WeatherBloc>(
-            create: (context) => GetIt.I<WeatherBloc>()..add(FetchWeatherByLocation()), // Cung cấp WeatherBloc ở đây
-            child: CurrentWeatherScreen(),
-          ),
-      },
+          '/weather': (context) => CurrentWeatherScreen(),
+          '/home': (context) => HomePage(),
+        },
+      ),
     );
   }
 }

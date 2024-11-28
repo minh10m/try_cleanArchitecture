@@ -1,12 +1,12 @@
-class User {
+class UserModel {
   String? email;
-  String? name;
+  String? password;
 
-  User(String email, String name) {
+  UserModel(String email, String password) {
     this.email = email;
-    this.name = this.name;
+    this.password = this.password;
   }
-  static User createUser(email, name) {
-    return new User(email, name);
+  static UserModel createUser(email, password) {
+    return new UserModel(email, password);
   }
 }

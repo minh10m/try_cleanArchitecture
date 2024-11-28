@@ -1,26 +1,23 @@
-import 'dart:async';
+
 import 'package:injectable/injectable.dart';
 import 'package:bloc/bloc.dart';
-import '../../../domain/usecase/login/sign_in.dart';
+import '../../../domain/usecase/authentication/sign_in.dart';
 import 'login_event.dart';
 import 'login_state.dart';
 
-@injectable
+@singleton
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final SignInUseCase signIn;
 
-  // Constructor
   LoginBloc({required this.signIn}) : super(LoginInitial()) {
-    // Đăng ký event handler cho sự kiện DoLogin
-    on<DoLogin>((event, emit) async* {
-      yield LoginLoading();  // Bắt đầu quá trình đăng nhập, hiển thị Loading
-
+    on<DoLogin>((event, emit) async {
+      emit(LoginLoading());  // Show loading state
       try {
-        final response = await signIn(event.email, event.password); // Gọi usecase để đăng nhập
-        print(response);  // Xử lý response nếu cần
-        yield LoginSuccess();  // Thành công, chuyển sang màn hình tiếp theo
+        final response = await signIn(event.email, event.password);
+        print("sign in success $response");  // Handle response if needed
+        emit(LoginSuccess());  // Emit success state on successful login
       } catch (e) {
-        yield LoginFailure(e.toString());  // Nếu có lỗi, hiển thị lỗi
+        emit(LoginFailure(e.toString()));  // Emit failure state with error message
       }
     });
   }
