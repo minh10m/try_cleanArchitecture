@@ -1,3 +1,4 @@
+import 'package:clean_architecture/data/service/notification_service.dart';
 import 'package:clean_architecture/presentation/bloc/chat/chat_bloc.dart';
 import 'package:clean_architecture/presentation/bloc/home/home_bloc.dart';
 import 'package:clean_architecture/presentation/bloc/login/login_bloc.dart';
@@ -19,6 +20,8 @@ void main() async {
 
   // Khởi tạo Firebase
   await Firebase.initializeApp();
+
+  await NotificationService().initNotifications();
 
   // Đăng ký các dịch vụ với GetIt
   await configureDependencies();
