@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "36411562880",
+    "project_id": "clean-architechture-dev",
+    "storage_bucket": "clean-architechture-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36411562880:android:dccbd62788bf78de617f65",
+        "android_client_info": {
+          "package_name": "com.example.clean_architecture.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnVdOzgqA5IEkZ1jx9EuEb_IcFhdTyyZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

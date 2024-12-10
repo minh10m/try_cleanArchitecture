@@ -1,3 +1,4 @@
+import 'package:clean_architecture/AppConfig.dart';
 import 'package:clean_architecture/presentation/bloc/login/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
+        title: Text(AppConfig.of(context)!.buildFlavor),
       ),
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {

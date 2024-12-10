@@ -6,7 +6,8 @@ buildscript {
     dependencies {
         // Đây là nơi bạn khai báo classpath
         classpath 'com.android.tools.build:gradle:7.0.4' // Thay thế phiên bản tùy theo yêu cầu
-        classpath 'com.google.gms:google-services:4.3.15' // Cập nhật phiên bản mới hơn nếu cần
+        classpath 'com.google.gms:google-services:4.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"// Cập nhật phiên bản mới hơn nếu cần
     }
 }
 allprojects {
